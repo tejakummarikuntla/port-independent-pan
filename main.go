@@ -58,6 +58,7 @@ func main() {
 	router.HandleFunc("/dl/People/{dl}",getDlPerson).Methods("GET")
 
 	log.Fatal(http.ListenAndServe(GetPort(), router))
+	log.Println("pooooooort: ",GetPort(), "rooouter :", router)
 	//log.Fatal(http.ListenAndServe(GetPort(), nil))
 }
 /*
@@ -66,6 +67,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }*/
 
 func GetPort() string {
+	log.Println("GetPort Called...................")
 	var port = os.Getenv("PORT")
 	if port == " "  {
 		port = "4747"
