@@ -69,11 +69,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func GetPort() string {
 	log.Println("GetPort Called...................")
 	var port = os.Getenv("PORT")
-	if port == " "  {
+	if port == "" {
 		port = "4747"
 		fmt.Println("INFO: no port env var detected, defatulign to" )
 	}
-	return ":" + port
+	return ":"+port
 }
 
 func getPanPeople(w http.ResponseWriter, r *http.Request)  {
