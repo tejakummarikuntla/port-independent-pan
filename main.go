@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
@@ -59,10 +58,10 @@ func main() {
 
 func GetPort() string {
 	var port = os.Getenv("PORT")
-	if port == " "  {
-		port = "4747"
-		fmt.Println("INFO: no port env var detected, defatulign to" )
-	}
+	//if port == " "  {
+	//	port = "4747"
+	//	fmt.Println("INFO: no port env var detected, defatulign to" )
+	//}
 	return ":" + port
 }
 
