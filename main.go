@@ -59,7 +59,7 @@ func main() {
 
 func GetPort() string {
 	var port = os.Getenv("PORT")
-	if port == ""  {
+	if port == " "  {
 		port = "4747"
 		fmt.Println("INFO: no port env var detected, defatulign to" )
 	}
