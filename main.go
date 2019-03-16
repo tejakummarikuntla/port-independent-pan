@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
@@ -29,6 +30,8 @@ var panPeople []panPerson
 var dlPeople []dlPerson
 
 func main() {
+	http.HandleFunc("/", handler)
+	fmt.Println("Listningggggg")
 
 	panPeople = append(panPeople,
 		panPerson{ID: 1, PAN: "KLDAJ8932" , Name:"johnDi", Fname:"fname-1", Dob:"20/01/1989"},
@@ -53,7 +56,12 @@ func main() {
 	router.HandleFunc("/dl/People",getDlPeople	).Methods("GET")
 	router.HandleFunc("/dl/People/{dl}",getDlPerson).Methods("GET")
 
-	log.Fatal(http.ListenAndServe(GetPort(), router))
+	//log.Fatal(http.ListenAndServe(GetPort(), router))
+	log.Fatal(http.ListenAndServe(GetPort(), nil))
+}
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello. This is our first go web app on heroku")
 }
 
 func GetPort() string {
