@@ -1,1 +1,1 @@
-web: port-pan 
+web: port-independent-pan
